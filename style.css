@@ -12,7 +12,7 @@ body{
     flex-direction: column;
     height: 100vh;
     /* 设定背景 */
-    background-image:url("/pic/bg1.jpg");
+    background-image:url("pic/bg1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     /* 设定字体类型 */
