@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-image:url("/pic/bg1.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'STZhongsong';
+        }
+        .left{
+            font-size: 450%;
+            writing-mode: vertical-lr;
+            position: absolute;
+            left: 0;
+        }
+        .right{
+            font-size: 450%;
+            writing-mode: vertical-lr;
+            position: absolute;
+            right:  0;
+        }
+        .shell{
+            position: relative;
+            width: 60vw;
+            height: 60vh;
+            max-width: 380px;
+            max-height: 250px;
+            margin: 0;
+            color: white;
+            perspective: 1000px;
+            transform-origin: center;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style:preserve-3d;
+            transform: translateZ(-35vw) rotateY(0);
+            transition: 1s;
+        }
+        .item{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            max-width: 380px;
+            max-height: 250px;
+            border-radius: 6px;
+            background-size: cover;
+            transform-style: preserve-3d;
+            transition: all .1s;
+            transform: translateZ(-10vw);
+        }
+        .item:nth-child(1){
+            transform: rotateY(0) translateZ(35vw);
+        }
+        .item:nth-child(2){
+            transform: rotateY(60deg) translateZ(35vw);
+        }
+        .item:nth-child(3){
+            transform: rotateY(120deg) translateZ(35vw);
+        }
+        .item:nth-child(4){
+            transform: rotateY(180deg) translateZ(35vw);
+        }
+        .item:nth-child(5){
+            transform: rotateY(240deg) translateZ(35vw);
+        }
+        .item:nth-child(6){
+            transform: rotateY(300deg) translateZ(35vw);
+        }
+        .card{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border: 2px solid black;
+            border-radius: 10px;
+            z-index: 1;
+            background-size: cover;
+        }
+       .previous{
+        position: absolute;
+        top: 10%;
+        left: -50px;
+        height: 100%;
+        font-size: 40px;
+        color: white;
+        background-color: rgba(227, 249, 253,0.35);
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all .1s;
+        opacity: 0;
+       }
+       .next{
+        position: absolute;
+        top: 10%;
+        right:  -50px;
+        height: 100%;
+        font-size: 40px;
+        color: white;
+        background-color: rgba(227, 249, 253,0.35);
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all .1s;
+        opacity: 0;
+       }
+       .next:hover,.previous:hover{
+        opacity: 1;
+       }
+       h2{
+        margin: 0;
+        padding: 0;
+        color: black;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: all .3s;
+       }
+       p{
+        color: black;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all .3s;
+        font-size: large;
+       }
+       p.active{
+        opacity: 1;
+        transform: translateY(0);
+       }
+       h2.active{
+        opacity: 1;
+        transform: translateY(0);
+       }
+       .setting{
+        position: fixed;
+        right: 0;
+        top: 0;
+       }
+       .setting button{
+        width: 100px;
+        height: 40px;
+        border: 0;
+        border-radius: 10px;
+        background-color: rgba(227, 249, 253,0.35);
+        color: black;
+        cursor: pointer;
+        transition: all .1s;
+       }
+       .setting button:hover{
+        opacity: 0.7;
+       }
+    </style>
+</head>
+<body>
+    <h1 class="left">勤读力耕</h1>
+    <h1 class="right">立己达人</h1>
+    <div class="shell">
+        <div class="content">
+            <div class="item" data-id = "1">
+                <h2>金秋十月 柿柿如意</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic1.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>温暖的秋阳之下，柿子园的近千棵柿子树硕果累累，犹如一个个小灯笼，映衬着师生和市民们的笑脸，也点燃了秋日的热情。摘一颗熟透的果实，感受那份来自大地的纯粹与甘甜，味蕾也与心灵一同沉醉。</p>
+            </div>
+            <div class="item" data-id = "2">
+                <h2>又见菜花黄，致敬追梦人</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic2.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>在这个寂静的春天<br>
+                    我们看到了馥郁的花海<br>
+                    也看到了希望、勇气、坚韧与力量</p>
+            </div>
+            <div class="item" data-id= "3">
+                <h2>春回大地，落樱缤纷</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic3.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>形影浮动深几许<br>
+                阳春三月喜见樱<br>
+                寸寸柔情，淡雅婉约<br>
+                云赏春的最后一天，一起来看樱花吧！</p>
+            </div>
+            <div class="item" data-id= "4">
+                <h2>狮山欢乐节</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic4.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>观奇思妙想的主题巡游、品天南海北的风味美食、购学科特色的校园文创、听激动人心的零点钟声、领书记校长的新年礼物……</p>
+            </div>
+            <div class="item" data-id= "5">
+                <h2>狮山龙珠</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic5.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>我们是龙和农的传人(descendants of the Loong and agriculture)，龙珠在中华文化中具有多维度、多层次的象征意义，它是中华民族独特审美意识和哲学思考的结晶。</p>
+            </div>
+            <div class="item" data-id= "6">
+                <h2>校园风光</h2>
+                <button class="previous">&#60</button>
+                <div class="card" style="background-image: url(/pic/pic6.jpg);"></div>
+                <button class="next">&#62</button>
+                <p>梅子金黄杏子肥，麦花雪白菜花稀。</p>
+            </div>
+        </div>
+    </div>
+    <div class="setting">
+        <button id="button1">切换背景</button>
+        <button id = "button2">投屏</button>
+    </div>
+</body>
+<script>
+    
+        const content = document.querySelector('.content');//获取content用于旋转
+        const items = document.querySelectorAll('.item');//获取容器
+        var animationInterval;//定时器
+        let  angle = 0;//选择角度
+        const theta = 360 / items.length;//每次增加角度
+        //旋转函数
+        function rotateCarousel() {
+            angle += theta//变化
+            content.style.transform = 'translateZ(' + -35 + 'vw)' + 'rotateY(' + -angle + 'deg)' ;
+            content.style.transition = 'transform 1s';//是变化更流畅
+        }
+        function startAnimation() {
+            //若间隔器不在则添加
+            if (!animationInterval) {
+                animationInterval = setInterval(rotateCarousel, 3000);
+            }
+        }
+        function pauseAnimation() {
+            //移除间隔器
+            if (animationInterval) {
+                clearInterval(animationInterval);
+                animationInterval = null;
+            }
+        }
+        startAnimation()
+        //图片监听事件
+        items.forEach(item => {
+            const p = document.querySelectorAll("p")[`${item.dataset.id}` - 1];
+            const h2 = document.querySelectorAll("h2")[`${item.dataset.id}` - 1];
+        item.addEventListener('mouseover', function(e) {
+            pauseAnimation();
+            const multiple = 20;
+            let mouseOverContainer = this;
+            const element = document.querySelectorAll(".card")[`${this.dataset.id}` - 1];
+            p.classList.add('active');
+            h2.classList.add('active');
+                function transformElement(x, y) {
+                    let box = element.getBoundingClientRect();
+                    let calcX = -(y - box.y - (box.height / 2)) / multiple;
+                    let calcY = (x - box.x - (box.width / 2)) / multiple;
+    
+                    element.style.transform = "rotateX(" + calcX + "deg) rotateY(" + calcY + "deg)";
+                }
+                mouseOverContainer.addEventListener('mousemove', (e) => {
+                    if(e.target.tagName === 'DIV'){
+                        window.requestAnimationFrame(function() {
+                        transformElement(e.clientX, e.clientY);
+                    });
+                    }
+                    
+                });
+                mouseOverContainer.addEventListener('mouseleave', (e) => {
+                 window.requestAnimationFrame(function() {
+                     element.style.transform = "rotateX(0) rotateY(0)";
+                    });
+                });
+            
+        });
+        item.addEventListener('mouseout', function(e) {
+            startAnimation();
+            
+            p.classList.remove('active');
+            h2.classList.remove('active');
+            });
+    });
+        //按钮
+        function previous() {
+            pauseAnimation();
+            angle = angle - theta;
+            updateTransform();//更新位置
+        }
+        function nextbutton() {
+            pauseAnimation();
+            angle = angle + theta;
+            updateTransform();//更新位置
+        }
+        //更新content
+        function updateTransform() {
+            content.style.transform = 'translateZ(-35vw) rotateY(' + -angle + 'deg)';
+            content.style.transition = 'transform 1s';
+            startAnimation(); // Restart the animation after updating the transform
+        }
+        document.querySelectorAll('.previous').forEach(button => {
+            button.addEventListener('click', previous);
+        })
+        document.querySelectorAll('.next').forEach(button => {
+            button.addEventListener('click', nextbutton);
+        })
+
+
+//
+const winterChange = document.querySelector('#button1');
+winterChange.addEventListener('click',function(){
+    if(document.querySelector('body').style.backgroundImage === 'url("/pic/bg1.jpg")')
+    document.querySelector('body').style.backgroundImage = "url('pic/bg2.jpg')";
+    else document.querySelector('body').style.backgroundImage = 'url("/pic/bg1.jpg")';
+})
+
+const button2 = document.querySelector('#button2');
+
+button2.addEventListener('click',function(){
+   let id = (angle / 60) - Math.floor((angle / 360)) * 6 + 1;
+    document.querySelector('body').style.backgroundImage = `url('pic/pic${id}.jpg')`;
+})
+</script>
+</html>
