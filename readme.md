@@ -58,13 +58,6 @@ box存的是图片坐标，calcX是要沿x轴旋转角度，calcY是要沿y轴�
 
 angle = 鼠标相对坐标 / Sensitivity，Sensitivity越小，转动角度越大
 
-调用requestAnimationFrame（）
-
-requestAnimationFrame函数用于动画渲染，类似间隔器，大概1秒调用60次回调函数，当然具体原理肯定不是这样的，但效果就是使动画效果有平滑感，不会出现卡顿。
-
-```js
-window.requestAnimationFrame（回调函数（即要调用的函数））
-```
 
 
 
