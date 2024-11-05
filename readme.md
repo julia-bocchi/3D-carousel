@@ -70,7 +70,7 @@ window.requestAnimationFrame（回调函数（即要调用的函数））
 
 ##### 2.设定监听事件
 
-移入事件
+1移入事件
 
 ```js
 //鼠标移动事件,使图片随鼠标移动旋转
@@ -84,9 +84,17 @@ window.requestAnimationFrame（回调函数（即要调用的函数））
     });
 ```
 
-移出事件
+2调用requestAnimationFrame
 
-重置图片位置
+调用requestAnimationFrame函数，有点类似间隔器，大概一秒调用回调函数60次，当然基本原理肯定没这么简单。
+
+```js
+window.requestAnimationFrame(回调函数（即要调用的函数）)
+```
+
+3移出事件
+
+重置图片位置移出事件
 
 ```js
 mouseOverContainer.addEventListener("mouseleave", (e) => {
