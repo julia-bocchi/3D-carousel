@@ -59,9 +59,9 @@ items.forEach((item) => {
     mouseOverContainer.addEventListener("mousemove", (e) => {
       //若鼠标在图片上,则执行图片旋转函数
       if (e.target.tagName === "DIV") {
-        window.requestAnimationFrame(function () {
-          transformElement(e.clientX, e.clientY);
-        });
+        window.requestAnimationFrame( 
+          transformElement(e.clientX, e.clientY)
+        );
       }
     });
     //鼠标移出事件,使图片恢复
